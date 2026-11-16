@@ -7,9 +7,9 @@ window.LA_CONFIG = {
   since: "Agosto 2025",
   tags: ["RolePlay", "Argentina", "ER:LC", "Roblox"],
 
-  discordUrl: "https://discord.gg/PLACEHOLDER",
+  discordUrl: "https://discord.gg/asQqjxKReF",
   tiktokUrl: "https://www.tiktok.com/@PLACEHOLDER",
-  botUrl: "https://discord.gg/PLACEHOLDER",
+  botUrl: "https://discord.gg/asQqjxKReF",
 
   // Postulaciones de staff abiertas (true) o cerradas (false)
   staffOpen: false,
