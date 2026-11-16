@@ -29,6 +29,37 @@
     }).join("");
   }
 
+  /* ---------- Datos del server, tags, pasos y FAQ ---------- */
+  const setCount = (sel, val) => { const n = $(sel); if (n && val != null) n.dataset.count = String(val); };
+  setCount("[data-count='187']", C.members);
+  setCount("[data-count='28']", C.online);
+  const sinceEl = $("#since");
+  if (sinceEl && C.since) sinceEl.textContent = C.since;
+
+  const tagsEl = $("#tags");
+  if (tagsEl && C.tags) {
+    tagsEl.innerHTML = C.tags.map((t) => `<span class="tag-pill">${esc(t)}</span>`).join("");
+  }
+
+  const stepsEl = $("#steps");
+  if (stepsEl && C.steps) {
+    stepsEl.innerHTML = C.steps.map((s, i) => `
+      <li class="step card reveal-3d" data-tilt style="--stagger:${i * 90}ms">
+        <span class="step-n">${String(i + 1).padStart(2, "0")}</span>
+        <h3>${esc(s.title)}</h3>
+        <p>${esc(s.desc)}</p>
+      </li>`).join("");
+  }
+
+  const faqEl = $("#faq-list");
+  if (faqEl && C.faq) {
+    faqEl.innerHTML = C.faq.map((f, i) => `
+      <details class="faq-item reveal-3d" ${i === 0 ? "open" : ""} style="--stagger:${i * 80}ms">
+        <summary>${esc(f.q)}<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p>${esc(f.a)}</p>
+      </details>`).join("");
+  }
+
   /* ---------- Facciones (tarjetas 3D) ---------- */
   const factions = $("#factions");
   if (factions && C.factions) {

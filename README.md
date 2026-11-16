@@ -10,6 +10,9 @@ index.html        Página principal (hero, info, fundación, facciones, liveries
 css/styles.css    Estilos, tokens de color en :root y animaciones
 js/config.js      Configuración editable (links, staff abierto/cerrado, fundadores, facciones, liveries)
 js/main.js        Animaciones: scroll 3D, carrusel, contadores, tilt, formulario
+js/chat.js        Widget del asistente con Gemini (lado del navegador)
+css/extras.css    Estilos del nav, FAQ, pasos y asistente flotante
+api/chat.js       Función serverless (Vercel) que habla con la API de Gemini
 assets/logo.png   Logo del server
 ```
 
@@ -36,10 +39,24 @@ Para la cantidad de usuarios y las facciones, el número del contador está en `
 
 Todo respeta `prefers-reduced-motion`.
 
+## Asistente con Gemini
+
+El chat llama a `/api/chat`, una función serverless de Vercel. La clave nunca va al navegador.
+
+En Vercel: **Settings → Environment Variables** y agregar:
+
+- `GEMINI_API_KEY` (obligatoria): clave de Google AI Studio.
+- `GEMINI_MODEL` (opcional): por defecto `gemini-3.8-flash`.
+
+Después de cargar la variable, hay que volver a desplegar el proyecto.
+
+El contexto del asistente (qué es el server, qué puede responder y qué no) está en `SYSTEM_PROMPT` dentro de `api/chat.js`.
+
 ## Pendiente
 
 - El formulario de staff valida el ID de Discord en el navegador, pero **no envía datos**.
   Para recibir postulaciones hace falta un backend (Supabase, un webhook de Discord o similar).
+- Completar los links, fundadores y facciones reales en `js/config.js`.
 - Reemplazar las liveries de ejemplo por imágenes reales en `assets/liveries/`.
 
 ## Publicar

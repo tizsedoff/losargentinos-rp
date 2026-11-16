@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Los Argentinos RP · Roleplay en Buenos Aires</title>
-  <meta name="description" content="Los Argentinos RP: servidor de roleplay en Buenos Aires. Facciones, staff, chat bot, liveries y comunidad.">
+  <title>Los Argentinos RP | ER:LC · Roleplay en Buenos Aires</title>
+  <meta name="description" content="Los Argentinos RP | [ER:LC]: servidor de roleplay orientado en Buenos Aires. Facciones, staff, chat bot con IA, liveries y comunidad.">
   <meta name="theme-color" content="#0a1828">
-  <meta property="og:title" content="Los Argentinos RP">
-  <meta property="og:description" content="Roleplay en Buenos Aires. Armá tu personaje y viví la ciudad.">
+  <meta property="og:title" content="Los Argentinos RP | ER:LC">
+  <meta property="og:description" content="Roleplay en Buenos Aires. Armá tu personaje, elegí tu facción y viví la ciudad.">
   <meta property="og:image" content="assets/logo.png">
   <link rel="icon" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/extras.css">
 </head>
 <body>
   <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
@@ -25,19 +26,26 @@
       <span class="orb orb-b"></span>
       <span class="grid-floor"></span>
     </div>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="#info">Info</a>
+      <a href="#empezar">Empezar</a>
+      <a href="#facciones">Facciones</a>
+      <a href="#bot">Asistente</a>
+      <a href="#faq">FAQ</a>
+      <a href="#staff">Staff</a>
+    </nav>
     <div class="hero-inner">
       <div class="logo-stage" data-tilt-scroll>
         <img class="logo" src="assets/logo.png" alt="Logo de Los Argentinos RP" width="300" height="300">
       </div>
       <h1 class="hero-title split" data-split>LOS ARGENTINOS <span class="accent">RP</span></h1>
-      <p class="hero-sub">Roleplay en Buenos Aires. Armá tu personaje, elegí tu facción y viví la ciudad con otros argentinos.</p>
+      <p class="hero-sub">Roleplay en Buenos Aires con ER:LC. Armá tu personaje, elegí tu facción y viví la ciudad con otros argentinos.</p>
+      <div class="tags" id="tags"></div>
       <div class="btns">
         <a class="btn primary magnetic" data-link="discord" href="#" target="_blank" rel="noopener">Entrar al Discord</a>
         <a class="btn magnetic" data-link="tiktok" href="#" target="_blank" rel="noopener">Seguinos en TikTok</a>
       </div>
-      <a class="scroll-cue" href="#info" aria-label="Bajar a la información">
-        <span></span>
-      </a>
+      <a class="scroll-cue" href="#info" aria-label="Bajar a la información"><span></span></a>
     </div>
   </header>
 
@@ -47,23 +55,41 @@
       <div class="section-head reveal-3d">
         <span class="eyebrow">Sobre el server</span>
         <h2>Una ciudad con su gente</h2>
-        <p class="lede">Un servidor de roleplay orientado en Buenos Aires. Hay barrios, negocios, trabajos y conflictos. Cada integrante interpreta un personaje y lo que pasa depende de lo que hacen los demás.</p>
+        <p class="lede">Somos un server de roleplay orientado en Buenos Aires. Hay barrios, negocios, trabajos y conflictos. Cada integrante interpreta un personaje y lo que pasa depende de lo que hacen los demás.</p>
       </div>
 
       <div class="stats">
         <div class="card stat reveal-3d" data-tilt>
-          <div class="stat-n"><span data-count="500" data-suffix="+">0</span></div>
-          <div class="stat-l">usuarios en el server</div>
+          <div class="stat-n"><span data-count="187" data-suffix="">0</span></div>
+          <div class="stat-l">miembros en el Discord</div>
         </div>
         <div class="card stat reveal-3d" data-tilt>
-          <div class="stat-n live"><span class="dot"></span>ACTIVO</div>
+          <div class="stat-n live"><span class="dot"></span><span data-count="28" data-suffix="">0</span></div>
+          <div class="stat-l">personas en línea ahora</div>
+        </div>
+        <div class="card stat reveal-3d" data-tilt>
+          <div class="stat-n stat-text" id="since">Ago 2025</div>
+          <div class="stat-l">estamos desde</div>
+        </div>
+        <div class="card stat reveal-3d" data-tilt>
+          <div class="stat-n live stat-text"><span class="dot"></span>ACTIVO</div>
           <div class="stat-l">staffs activos moderando todos los días</div>
         </div>
-        <div class="card stat reveal-3d" data-tilt>
-          <div class="stat-n"><span data-count="3" data-suffix="">0</span></div>
-          <div class="stat-l">facciones con historia propia</div>
-        </div>
       </div>
+
+      <div class="about reveal-3d">
+        <p>Somos un server pequeño y en crecimiento, con alianza abierta y soporte 24/7. Apoyamos a los demás servidores de la comunidad. Solo RP, con un estilo bien argentino.</p>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO EMPEZAR ============ -->
+    <section class="section" id="empezar">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Guía rápida</span>
+        <h2>Cómo empezar</h2>
+        <p class="lede">En cinco pasos estás jugando.</p>
+      </div>
+      <ol class="steps" id="steps"></ol>
     </section>
 
     <!-- ============ FUNDACIÓN ============ -->
@@ -93,8 +119,7 @@
         <h2>Algunas liveries</h2>
         <p class="lede">Diseños que usa la comunidad. Deslizá o usá las flechas.</p>
       </div>
-
-      <div class="carousel" id="carousel" aria-roledescription="carrusel">
+      <div class="carousel" id="carousel">
         <button class="car-btn prev" type="button" aria-label="Anterior">‹</button>
         <div class="car-track" id="car-track" tabindex="0"></div>
         <button class="car-btn next" type="button" aria-label="Siguiente">›</button>
@@ -102,26 +127,36 @@
       </div>
     </section>
 
-    <!-- ============ CHAT BOT ============ -->
+    <!-- ============ ASISTENTE / CHAT BOT ============ -->
     <section class="section" id="bot">
       <div class="section-head reveal-3d">
         <span class="eyebrow">Herramientas</span>
-        <h2>Chat bot</h2>
+        <h2>Chat bot y asistente</h2>
       </div>
       <div class="bot">
         <div class="reveal-3d">
-          <p class="lede">El bot del server responde comandos, muestra la info de tu personaje y avisa de novedades. Escribí en el canal indicado de Discord para usarlo.</p>
-          <a class="btn primary magnetic" data-link="bot" href="#" target="_blank" rel="noopener">Ir al canal del bot</a>
+          <p class="lede">Tenemos dos bots. El del Discord responde comandos como tu perfil o tus solicitudes de facción. Y el asistente de esta página, con inteligencia artificial, responde tus dudas sobre el server a cualquier hora.</p>
+          <div class="btns left">
+            <button class="btn primary magnetic" type="button" data-open-chat>Hablar con el asistente</button>
+            <a class="btn magnetic" data-link="bot" href="#" target="_blank" rel="noopener">Canal del bot</a>
+          </div>
         </div>
         <div class="chat" aria-hidden="true">
-          <div class="bubble bot-msg" style="animation-delay:.1s">Hola, soy el bot de Los Argentinos RP.</div>
-          <div class="bubble me" style="animation-delay:.9s">/perfil</div>
-          <div class="bubble bot-msg" style="animation-delay:1.7s">Personaje: Juan Pérez · Facción: Civiles · Estado: en servicio</div>
-          <div class="bubble me" style="animation-delay:2.5s">/facción unirme</div>
-          <div class="bubble bot-msg" style="animation-delay:3.3s">Solicitud enviada. Un staff la revisará.</div>
-          <div class="typing" style="animation-delay:4s"><span></span><span></span><span></span></div>
+          <div class="bubble bot-msg" style="animation-delay:.1s">Hola, soy el asistente de Los Argentinos RP. ¿En qué te ayudo?</div>
+          <div class="bubble me" style="animation-delay:.9s">¿Cómo me postulo a staff?</div>
+          <div class="bubble bot-msg" style="animation-delay:1.7s">Cuando las postulaciones estén abiertas, vinculá tu Discord en el formulario de esta página y completá los datos.</div>
+          <div class="typing" style="animation-delay:3s"><span></span><span></span><span></span></div>
         </div>
       </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Dudas</span>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq" id="faq-list"></div>
     </section>
 
     <!-- ============ STAFF ============ -->
@@ -165,14 +200,16 @@
 
   <footer>
     <div class="footer-logo"><img src="assets/logo.png" alt="" width="64" height="64"></div>
-    <div>Los Argentinos RP · Roleplay en Buenos Aires</div>
+    <div>Los Argentinos RP | [ER:LC] · Roleplay en Buenos Aires</div>
     <div class="btns">
       <a class="btn" data-link="discord" href="#" target="_blank" rel="noopener">Discord</a>
       <a class="btn" data-link="tiktok" href="#" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn" href="#top">Subir ↑</a>
     </div>
   </footer>
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
 </body>
 </html>
