@@ -85,25 +85,40 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "Escribí una pregunta para el asistente." });
   }
 
-  try {
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-goog-api-key": apiKey
-      },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents,
-        generationConfig: { temperature: 0.7, maxOutputTokens: 600 }
-      })
-    });
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    contents,
+    generationConfig: { temperature: 0.7, maxOutputTokens: 600 }
+  });
 
-    const data = await r.json().catch(() => ({}));
+  // Reintenta solo errores temporales (alta demanda, límite de uso, fallo del servidor).
+  const RETRY_STATUS = new Set([429, 500, 503, 504]);
+  const DELAYS_MS = [800, 2000];
+
+  try {
+    let r;
+    let data = {};
+    for (let attempt = 0; attempt <= DELAYS_MS.length; attempt++) {
+      r = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: payload
+      });
+      data = await r.json().catch(() => ({}));
+      if (r.ok || !RETRY_STATUS.has(r.status) || attempt === DELAYS_MS.length) break;
+      console.warn(`Gemini ${r.status} (intento ${attempt + 1}), reintentando…`);
+      await new Promise((resolve) => setTimeout(resolve, DELAYS_MS[attempt]));
+    }
 
     if (!r.ok) {
       console.error("Error de Gemini:", r.status, data?.error?.message || "sin detalle");
-      return res.status(502).json({ error: "El asistente no pudo responder ahora. Probá de nuevo." });
+      const busy = RETRY_STATUS.has(r.status);
+      return res.status(busy ? 503 : 502).json({
+        error: busy
+          ? "El asistente tiene mucha demanda en este momento. Probá de nuevo en unos segundos."
+          : "El asistente no pudo responder ahora. Probá de nuevo."
+      });
     }
 
     const reply = (data.candidates?.[0]?.content?.parts || [])
