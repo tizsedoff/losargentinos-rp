@@ -3,9 +3,9 @@
 //
 // Variables de entorno:
 //   GEMINI_API_KEY  (obligatoria) clave de Google AI Studio
-//   GEMINI_MODEL    (opcional)    por defecto: gemini-3.8-flash
+//   GEMINI_MODEL    (opcional)    por defecto: gemini-3.5-flash-lite
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 const SYSTEM_PROMPT = `
 Sos el asistente oficial de "Los Argentinos RP | [ER:LC]", un servidor de roleplay en Discord

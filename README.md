@@ -46,7 +46,7 @@ El chat llama a `/api/chat`, una función serverless de Vercel. La clave nunca v
 En Vercel: **Settings → Environment Variables** y agregar:
 
 - `GEMINI_API_KEY` (obligatoria): clave de Google AI Studio.
-- `GEMINI_MODEL` (opcional): por defecto `gemini-3.8-flash`.
+- `GEMINI_MODEL` (opcional): por defecto `gemini-3.5-flash-lite`.
 
 Después de cargar la variable, hay que volver a desplegar el proyecto.
 
