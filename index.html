@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Los Argentinos RP · Roleplay en Buenos Aires</title>
+  <meta name="description" content="Los Argentinos RP: servidor de roleplay en Buenos Aires. Facciones, staff, chat bot, liveries y comunidad.">
+  <meta name="theme-color" content="#0a1828">
+  <meta property="og:title" content="Los Argentinos RP">
+  <meta property="og:description" content="Roleplay en Buenos Aires. Armá tu personaje y viví la ciudad.">
+  <meta property="og:image" content="assets/logo.png">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="grid-floor"></span>
+    </div>
+    <div class="hero-inner">
+      <div class="logo-stage" data-tilt-scroll>
+        <img class="logo" src="assets/logo.png" alt="Logo de Los Argentinos RP" width="300" height="300">
+      </div>
+      <h1 class="hero-title split" data-split>LOS ARGENTINOS <span class="accent">RP</span></h1>
+      <p class="hero-sub">Roleplay en Buenos Aires. Armá tu personaje, elegí tu facción y viví la ciudad con otros argentinos.</p>
+      <div class="btns">
+        <a class="btn primary magnetic" data-link="discord" href="#" target="_blank" rel="noopener">Entrar al Discord</a>
+        <a class="btn magnetic" data-link="tiktok" href="#" target="_blank" rel="noopener">Seguinos en TikTok</a>
+      </div>
+      <a class="scroll-cue" href="#info" aria-label="Bajar a la información">
+        <span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ INFO ============ -->
+    <section class="section" id="info">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Sobre el server</span>
+        <h2>Una ciudad con su gente</h2>
+        <p class="lede">Un servidor de roleplay orientado en Buenos Aires. Hay barrios, negocios, trabajos y conflictos. Cada integrante interpreta un personaje y lo que pasa depende de lo que hacen los demás.</p>
+      </div>
+
+      <div class="stats">
+        <div class="card stat reveal-3d" data-tilt>
+          <div class="stat-n"><span data-count="500" data-suffix="+">0</span></div>
+          <div class="stat-l">usuarios en el server</div>
+        </div>
+        <div class="card stat reveal-3d" data-tilt>
+          <div class="stat-n live"><span class="dot"></span>ACTIVO</div>
+          <div class="stat-l">staffs activos moderando todos los días</div>
+        </div>
+        <div class="card stat reveal-3d" data-tilt>
+          <div class="stat-n"><span data-count="3" data-suffix="">0</span></div>
+          <div class="stat-l">facciones con historia propia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FUNDACIÓN ============ -->
+    <section class="section" id="fundacion">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Equipo</span>
+        <h2>Fundación</h2>
+        <p class="lede">Las personas que armaron el server desde el inicio.</p>
+      </div>
+      <div class="founders" id="founders"></div>
+    </section>
+
+    <!-- ============ FACCIONES ============ -->
+    <section class="section" id="facciones">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Roleplay</span>
+        <h2>Facciones</h2>
+        <p class="lede">Cada facción tiene su historia, su territorio y sus reglas internas. Pasá el mouse para verlas en 3D.</p>
+      </div>
+      <div class="factions" id="factions"></div>
+    </section>
+
+    <!-- ============ LIVERIES (carrusel) ============ -->
+    <section class="section" id="liveries">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Vehículos</span>
+        <h2>Algunas liveries</h2>
+        <p class="lede">Diseños que usa la comunidad. Deslizá o usá las flechas.</p>
+      </div>
+
+      <div class="carousel" id="carousel" aria-roledescription="carrusel">
+        <button class="car-btn prev" type="button" aria-label="Anterior">‹</button>
+        <div class="car-track" id="car-track" tabindex="0"></div>
+        <button class="car-btn next" type="button" aria-label="Siguiente">›</button>
+        <div class="car-dots" id="car-dots"></div>
+      </div>
+    </section>
+
+    <!-- ============ CHAT BOT ============ -->
+    <section class="section" id="bot">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Herramientas</span>
+        <h2>Chat bot</h2>
+      </div>
+      <div class="bot">
+        <div class="reveal-3d">
+          <p class="lede">El bot del server responde comandos, muestra la info de tu personaje y avisa de novedades. Escribí en el canal indicado de Discord para usarlo.</p>
+          <a class="btn primary magnetic" data-link="bot" href="#" target="_blank" rel="noopener">Ir al canal del bot</a>
+        </div>
+        <div class="chat" aria-hidden="true">
+          <div class="bubble bot-msg" style="animation-delay:.1s">Hola, soy el bot de Los Argentinos RP.</div>
+          <div class="bubble me" style="animation-delay:.9s">/perfil</div>
+          <div class="bubble bot-msg" style="animation-delay:1.7s">Personaje: Juan Pérez · Facción: Civiles · Estado: en servicio</div>
+          <div class="bubble me" style="animation-delay:2.5s">/facción unirme</div>
+          <div class="bubble bot-msg" style="animation-delay:3.3s">Solicitud enviada. Un staff la revisará.</div>
+          <div class="typing" style="animation-delay:4s"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAFF ============ -->
+    <section class="section" id="staff">
+      <div class="section-head reveal-3d">
+        <span class="eyebrow">Postulaciones</span>
+        <h2>Formulario de staff</h2>
+        <p class="lede">Para postularte tenés que vincular tu cuenta de Discord. Las postulaciones se abren y se cierran desde la configuración del sitio.</p>
+      </div>
+
+      <div class="staff-wrap reveal-3d">
+        <div class="staff-status" id="staff-status"><span class="dot"></span><span id="staff-status-text"></span></div>
+
+        <div id="closed" class="closed-box" hidden>
+          Las postulaciones para staff están cerradas en este momento. Seguí el Discord para enterarte cuando se abran.
+        </div>
+
+        <div id="open-area" hidden>
+          <div id="gate" class="gate">
+            <div class="field">
+              <label for="discord-id">ID de tu cuenta de Discord</label>
+              <input id="discord-id" inputmode="numeric" autocomplete="off" placeholder="Ej: 123456789012345678">
+              <span class="hint">Activá el modo desarrollador en Discord, clic derecho sobre tu perfil y "Copiar ID de usuario".</span>
+            </div>
+            <p class="msg" id="gate-msg" aria-live="polite"></p>
+            <div><button class="btn primary magnetic" id="gate-btn" type="button">Vincular cuenta</button></div>
+          </div>
+
+          <form id="form" class="form" hidden novalidate>
+            <div class="field"><label for="f-name">Nombre de tu personaje</label><input id="f-name" required></div>
+            <div class="field"><label for="f-age">Edad</label><input id="f-age" type="number" min="13" max="99" required></div>
+            <div class="field"><label for="f-hours">Horas disponibles por semana</label><input id="f-hours" required></div>
+            <div class="field"><label for="f-why">¿Por qué querés ser staff?</label><textarea id="f-why" required></textarea></div>
+            <p class="msg" id="form-msg" aria-live="polite"></p>
+            <div><button class="btn primary magnetic" type="submit">Enviar postulación</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo"><img src="assets/logo.png" alt="" width="64" height="64"></div>
+    <div>Los Argentinos RP · Roleplay en Buenos Aires</div>
+    <div class="btns">
+      <a class="btn" data-link="discord" href="#" target="_blank" rel="noopener">Discord</a>
+      <a class="btn" data-link="tiktok" href="#" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
