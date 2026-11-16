@@ -1,5 +1,9 @@
 /* Secciones nuevas: nav, tags, pasos, FAQ, asistente flotante. Usa los tokens de styles.css. */
 
+/* Indicador de scroll del hero: separado de los botones */
+.hero-inner { padding-bottom: 96px; }
+.scroll-cue { bottom: 18px; }
+
 /* Navegación superior */
 .topnav {
   position: absolute; top: calc(env(safe-area-inset-top, 0px) + 16px); left: 50%; transform: translateX(-50%);

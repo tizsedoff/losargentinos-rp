@@ -65,8 +65,15 @@
   document.body.append(fab, panel);
 
   // ---- Render ----
+  // Escapa el texto y convierte **negrita** del modelo; nunca se inserta HTML crudo.
+  const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const formatBot = (s) => escapeHtml(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
   function bubble(role, text) {
-    const b = el("div", "cb " + (role === "user" ? "me" : "bot"), text);
+    const b = el("div", "cb " + (role === "user" ? "me" : "bot"));
+    if (role === "user") b.textContent = text;
+    else b.innerHTML = formatBot(text);
     log.appendChild(b);
     log.scrollTop = log.scrollHeight;
     return b;
